@@ -1,0 +1,12 @@
+// Last updated: 14/07/2026, 11:22:46
+class Solution {
+    public String toLowerCase(String s) {
+      char[] ch= s.toCharArray();
+      for(int i =0;i<s.length();i++){
+        if(ch[i] >='A' && ch[i] <= 'Z'){
+            ch[i] = (char)(ch[i]+32);
+        }
+      }  
+      return new String(ch);
+    }
+}
