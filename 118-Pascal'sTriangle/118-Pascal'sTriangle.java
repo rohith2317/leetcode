@@ -1,4 +1,4 @@
-// Last updated: 24/08/2026, 09:26:47
+// Last updated: 24/08/2026, 09:27:47
 1class Solution {
 2    public List<List<Integer>> generate(int numRows) {
 3        List<List<Integer>> result = new ArrayList<>();
