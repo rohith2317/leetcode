@@ -1,4 +1,4 @@
-# Last updated: 31/08/2026, 15:01:51
+# Last updated: 31/08/2026, 15:02:15
 1class Solution:
 2    def countRangeSum(self, nums: List[int], lower: int, upper: int) -> int:
 3        psum = [0]
