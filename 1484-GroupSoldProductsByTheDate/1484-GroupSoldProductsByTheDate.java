@@ -1,20 +1,27 @@
-// Last updated: 02/09/2026, 14:04:47
+// Last updated: 02/09/2026, 14:05:57
 1class Solution {
-2    public List<String> summaryRanges(int[] nums) {
-3        List<String> list = new ArrayList<>();
-4        int len = nums.length;
-5        for(int i=0;i<len;i++){
-6            int start = nums[i];
-7
-8            while(i+1 < len && nums[i+1]== nums[i]+1){
-9                i++;
-10            }
-11            if(start==nums[i]){
-12                list.add(String.valueOf(start));
-13            }else{
-14                list.add(start +"->"+nums[i]);
-15            }
-16        }
-17        return list;
-18    }
-19}
+2    public int maximalSquare(char[][] matrix) {
+3        int m = matrix.length;
+4        int n = matrix[0].length;
+5
+6        int[][] dp = new int[m][n];
+7        int maxSide = 0;
+8
+9        for (int i = 0; i < m; i++) {
+10            for (int j = 0; j < n; j++) {
+11                if (matrix[i][j] == '1') {
+12                    if (i == 0 || j == 0) {
+13                        dp[i][j] = 1;
+14                    } else {
+15                        dp[i][j] = 1 + Math.min(dp[i - 1][j],
+16                                Math.min(dp[i][j - 1], dp[i - 1][j - 1]));
+17                    }
+18
+19                    maxSide = Math.max(maxSide, dp[i][j]);
+20                }
+21            }
+22        }
+23
+24        return maxSide * maxSide;
+25    }
+26}
