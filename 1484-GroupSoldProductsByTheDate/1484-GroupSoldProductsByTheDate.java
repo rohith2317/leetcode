@@ -1,27 +1,15 @@
-// Last updated: 02/09/2026, 14:05:57
+// Last updated: 02/09/2026, 14:06:41
 1class Solution {
-2    public int maximalSquare(char[][] matrix) {
-3        int m = matrix.length;
-4        int n = matrix[0].length;
-5
-6        int[][] dp = new int[m][n];
-7        int maxSide = 0;
-8
-9        for (int i = 0; i < m; i++) {
-10            for (int j = 0; j < n; j++) {
-11                if (matrix[i][j] == '1') {
-12                    if (i == 0 || j == 0) {
-13                        dp[i][j] = 1;
-14                    } else {
-15                        dp[i][j] = 1 + Math.min(dp[i - 1][j],
-16                                Math.min(dp[i][j - 1], dp[i - 1][j - 1]));
-17                    }
-18
-19                    maxSide = Math.max(maxSide, dp[i][j]);
-20                }
-21            }
-22        }
-23
-24        return maxSide * maxSide;
-25    }
-26}
+2    public boolean containsNearbyDuplicate(int[] nums, int k) {
+3        HashMap<Integer,Integer>map=new HashMap<>();
+4        boolean ans=false;
+5        for(int i=0;i<nums.length;i++){
+6            if(map.containsKey(nums[i])){
+7                if(i-map.get(nums[i])>k)ans=false;
+8                else return true;
+9            }
+10            map.put(nums[i],i);
+11        }
+12        return ans;
+13    }
+14}
