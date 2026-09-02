@@ -1,4 +1,4 @@
-// Last updated: 02/09/2026, 12:33:26
+// Last updated: 02/09/2026, 12:33:45
 1class Solution {
 2    private List<Integer> res = new ArrayList<>();
 3    public List<Integer> inorderTraversal(TreeNode root) {
