@@ -1,27 +1,23 @@
-// Last updated: 02/09/2026, 14:12:48
-1class Solution {
-2    public int[] intersect(int[] nums1, int[] nums2) {
-3        int l1 = nums1.length;
-4        int l2 = nums2.length;
-5        int i = 0, j = 0, k = 0;
-6        Arrays.sort(nums1);
-7        Arrays.sort(nums2);
-8        while( i < l1 && j < l2)
-9        {
-10            if(nums1[i] < nums2[j])
-11            {
-12                i++;
-13            }
-14            else if(nums1[i] > nums2[j])
-15            {
-16                j++;
-17            }
-18            else
-19            {
-20                nums1[k++] = nums1[i++];
-21                j++;
-22            }
-23        }
-24        return Arrays.copyOfRange(nums1,0,k);
-25    }
-26}
+// Last updated: 02/09/2026, 14:17:23
+1class NumArray {
+2    private int[] pre;
+3    public NumArray(int[] nums) {
+4        int n = nums.length;
+5        pre = new int[n+1];
+6
+7        pre[0] = 0;
+8        for(int i = 1;i<=n;i++){
+9            pre[i] = pre[i-1] + nums[i-1];
+10        }    
+11    }
+12    
+13    public int sumRange(int left, int right) {
+14        return pre[right+1] - pre[left];
+15    }
+16}
+17
+18/**
+19 * Your NumArray object will be instantiated and called as such:
+20 * NumArray obj = new NumArray(nums);
+21 * int param_1 = obj.sumRange(left,right);
+22 */
